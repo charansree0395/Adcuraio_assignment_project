@@ -1,0 +1,61 @@
+{% extends 'dummy.html' %}
+
+    {% block title %}
+    <title>List of Foods</title>
+    {% endblock %}
+    
+
+{% block body_block %}
+
+
+<style>
+   
+    .card {
+        display: inline-block;
+        width: 18rem;
+        margin-right: 10px;
+    }
+
+    .card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #container{
+        display: flex;
+        background-color: aqua;
+        display: inline;
+    }
+    
+</style>
+
+<br> <br>
+<center>
+
+        <div class="container-fluid mt-5 display-flex" id="container">
+            <div class="row">
+                {% for k in data%}
+                    <div class="col-md-4">
+                        <div class="card" >
+                            <div class="card-header">
+                                <img src="{{k.Image}}" class="card-img-top" alt="..." height="300px" width="300px">
+                            </div>
+                            <div class="card-body bg-white" >
+                                <h5 class="card-title" ><a href="{{k.Tfood}}">{{k.Tfood}} </a></h5>
+                                <p class="card-text">{{k.Description}}</p>
+                            </div>
+                        </div> 
+                    </div>
+                {% endfor %}
+            </div>    
+        </div>
+    
+    
+    
+</center>
+
+
+
+    {% endblock %}
